@@ -5,7 +5,7 @@
     <groupId>ca.mcgill.sable</groupId>
     <artifactId>soot</artifactId>
     <name>Soot - a J*va Optimization Framework</name>
-    <version>4.0.0</version>
+    <version>LOCAL-SNAPSHOT</version>
     <description>A Java Optimization Framework</description>
     <url>https://sable.github.io/soot/</url>
     <organization>
