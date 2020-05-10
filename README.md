@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/Sable/soot/workflows/Soot%20CI/badge.svg?branch=master)](https://github.com/Sable/soot/actions)
+[![Build Status](https://github.com/Sable/soot/workflows/Soot%20CI/badge.svg?branch=develop)](https://github.com/Sable/soot/actions)
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/Sable/soot) 
 
 # Using Soot? Let us know about it!
@@ -158,7 +158,6 @@ if you want to specify the classpath explicitly run:
 `java -cp soot-trunk.jar soot.Main -cp VIRTUAL_FS_FOR_JDK --process-dir directoryToAnalyse`
 
 the value `VIRTUAL_FS_FOR_JDK` indicates that Soot should search Java's (>9) virtual filesystem `jrt:/` for classes, too, although Soot is not executed in module mode.
-
 
 To load modules and classes in Soot using java 1.8 run:
 
