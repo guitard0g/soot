@@ -1,21 +1,24 @@
-[![Build Status](https://soot-build.cs.uni-paderborn.de/jenkins/job/soot/job/soot-pipeline/job/master/badge/icon)](https://soot-build.cs.uni-paderborn.de/jenkins/job/soot/job/soot-pipeline/job/master/)
+[![Build Status](https://github.com/Sable/soot/workflows/Soot%20CI/badge.svg?branch=master)](https://github.com/Sable/soot/actions)
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/Sable/soot) 
 
 # Using Soot? Let us know about it!
 We are regularly applying for funding to help us maintain Soot. You can help us immensely by letting us know about [**projects that use Soot**](https://github.com/Sable/soot/wiki/Users-of-Soot), both commercially or in the form of research tools.
 
+Also many thanks to [![JProfiler](https://www.ej-technologies.com/images/product_banners/jprofiler_small.png)](https://www.ej-technologies.com/products/jprofiler/overview.html) for supporting Soot with a free-to-use open source license!
+
 # Soot supports Java 9 modules now!
 Try and get involved in Soot's Java 9 bleeding edge developement.
 ## What works and is tested?
-    * Automatic modules (modules automatically created from jars in the module-path)
-    * Named modules
-    * Exploded modules
-    * Modular jar files
-    * Resolving modules in Soot's `ModuleScene`
-    * Spark
+* Automatic modules (modules automatically created from jars in the module-path)
+* Named modules
+* Exploded modules
+* Modular jar files
+* Resolving modules in Soot's `ModuleScene`
+* Spark
    
- ## What does not work yet?
-    * Anonymous modules (mixing module- and class-path)
-    * Multi-module jar files
+## What does not work yet?
+ * Anonymous modules (mixing module- and class-path)
+ * Multi-module jar files
 
 # What is Soot?
 
@@ -45,18 +48,21 @@ a dependency via Maven, Gradle, SBT, etc using the following coordinates:
   <dependency>
     <groupId>ca.mcgill.sable</groupId>
     <artifactId>soot</artifactId>
-    <version>4.0.0</version>
+    <version>4.1.0</version>
   </dependency>
 </dependencies>
 ```
 
-
 You can also obtain older builds of the `master` branch. A complete listing of builds can be found on [Maven Central](https://repo.maven.apache.org/maven2/ca/mcgill/sable/soot/).
 
 # How do I obtain Soot without Maven?
+**We recommend using Soot with Maven**
 
-All of our Soot builds for the `master` branch are also stored up to one month in our [Nexus repository](https://soot-build.cs.uni-paderborn.de/nexus/#browse/browse:soot-release:ca%2Fmcgill%2Fsable%2Fsoot) and can be obtained from there.
-The latest realease build of Soot can also be obtained [directly](https://soot-build.cs.uni-paderborn.de/public/origin/master/soot/soot-master/). The "sootclasses-trunk-jar-with-dependencies.jar" file is an all-in-one file that also contains all the required libraries. The "sootclasses-trunk.jar" file contains only Soot, allowing you to manually pick dependencies as you need them. If you do not want to bother with dependencies, we recommend using the former.
+You can obtain the latest release build of Soot [directly](https://repo1.maven.org/maven2/ca/mcgill/sable/soot/).
+
+The `soot-<RELEASE>-jar-with-dependencies.jar` file is an all-in-one file that also contains all the required libraries. 
+
+The `soot-<RELEASE>.jar`  file contains only Soot, allowing you to manually pick dependencies as you need them. If you do not want to bother with dependencies, we recommend using the former.
 
 # Building Soot yourself
 
@@ -145,19 +151,21 @@ if(java>=9 && USE_MODULEPATH){
 
 ## Use from the Command Line
 To execute Soot using Java 1.9, but analyzing a classpath run, just as before:
-`java -cp soot-trunk-j9.jar soot.Main --process-dir directoryToAnalyse`
+`java -cp soot-trunk.jar soot.Main --process-dir directoryToAnalyse`
 
 
 if you want to specify the classpath explicitly run:
-`java -cp soot-trunk-j9.jar soot.Main -cp VIRTUAL_FS_FOR_JDK --process-dir directoryToAnalyse`
+`java -cp soot-trunk.jar soot.Main -cp VIRTUAL_FS_FOR_JDK --process-dir directoryToAnalyse`
 
 the value `VIRTUAL_FS_FOR_JDK` indicates that Soot should search Java's (>9) virtual filesystem `jrt:/` for classes, too, although Soot is not executed in module mode.
 
 
 To load modules and classes in Soot using java 1.8 run:
 
-` java -cp PATH_TO_JAVA9/jrt-fs.jar:soot-trunk-j9.jar soot.Main -pp -soot-modulepath modules/  `
+` java -cp PATH_TO_JAVA9/jrt-fs.jar:soot-trunk.jar soot.Main -pp -soot-modulepath modules/  `
 
 
 Please replace `PATH_TO_JAVA9` with the path to your local installation of java 9.
 The `jrt-fs.jar` is a built-in NIO FileSystem provider for the jrt:// filesystem java 9 uses that replaces `rt.jar`. 
+
+
